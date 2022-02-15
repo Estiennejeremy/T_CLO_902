@@ -1,0 +1,23 @@
+# quick docker-compose with gh copilot
+version: '3.8'
+volumes:
+  {}
+services:
+  ng:
+    image: angular/cli
+  ws:
+    image: nginx:latest
+  lb:
+    image: metallb/metallb:v0.9.3
+  api:
+    image: laravel/lumen
+  db3:
+    image: rabbitmq:3-management
+  db2:
+    image: mysql:5.7
+  db1:
+    image: elasticsearch:5.6.2
+  rep:
+    image: golang:1.14
+  index:
+    image: nodejs:10
