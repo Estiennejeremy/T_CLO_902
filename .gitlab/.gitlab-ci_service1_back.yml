@@ -1,6 +1,6 @@
 variables:
-  GID: "1000"
-  UID: "1000"
+  GID: 1000
+  UID: 1000
 
 docker-build1:
   stage: build
