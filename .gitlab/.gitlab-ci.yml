@@ -1,6 +1,6 @@
-variables:
-  GID: "$GID"
-  UID: "$UID"
+# args:
+#   GID: "$GID"
+#   UID: "$UID"
 
 docker-build1:
   stage: build
@@ -11,6 +11,9 @@ docker-build1:
   #  - main
   services:
     - docker:dind
+  before_script:
+    - arg1: 1000
+    - arg2: 1000
   before_script:
     - cd app/back/dockerfiles
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
