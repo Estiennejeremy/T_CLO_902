@@ -1,3 +1,7 @@
+variables:
+  - GID = $GID
+  - UID = $UID
+
 docker-build1:
   stage: build
   allow_failure: true
