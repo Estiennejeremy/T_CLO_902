@@ -9,7 +9,8 @@ ENV GID=${GID}
 # MacOS staff group's gid is 20, so is the dialout group in alpine linux. We're not using it, let's just remove it.
 RUN delgroup dialout
 
-RUN echo 'UID' ${UID} UID
+RUN echo 'UID' ${UID} UID arg1
+RUN echo 'arg1' ${arg1} arg1
 RUN addgroup -g ${GID} --system laravel
 RUN adduser -G laravel --system -D -s /bin/sh -u ${UID} laravel
 
