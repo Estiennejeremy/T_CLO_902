@@ -1,7 +1,7 @@
-inlcude:
+include:
   - local: ".gitlab-ci_service1_back.yml"
-  - local: ".gitlab-ci_service2_front.yml"
-  - local: ".gitlab-ci_service3_indexer.yml"
-  - local: ".gitlab-ci_service4_reporting.yml"
-  - local: ".gitlab-ci_service5.yml"
-  - local: ".gitlab-ci_service6.yml"
+  # - local: ".gitlab-ci_service2_front.yml"
+  # - local: ".gitlab-ci_service3_indexer.yml"
+  # - local: ".gitlab-ci_service4_reporting.yml"
+  # - local: ".gitlab-ci_service5.yml"
+  # - local: ".gitlab-ci_service6.yml"
