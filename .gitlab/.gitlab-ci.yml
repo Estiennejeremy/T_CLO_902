@@ -35,8 +35,8 @@ docker-build1:
   #       - Dockerfile
 
 
-include:
-  - local: ".gitlab/.gitlab-ci_service1_back.yml"
+#include:
+  # - local: ".gitlab/.gitlab-ci_service1_back.yml"
   # - local: ".gitlab-ci_service2_front.yml"
   # - local: ".gitlab-ci_service3_indexer.yml"
   # - local: ".gitlab-ci_service4_reporting.yml"
