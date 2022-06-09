@@ -3,4 +3,4 @@ include:
   - local: ".gitlab/.gitlab-ci_service2_elasticsearch.yml"
   - local: ".gitlab/.gitlab-ci_service3_nginx.yml"
   - local: ".gitlab/.gitlab-ci_service4_php.yml"
-  - local: ".gitlab/.gitlab-ci_service1_front.yml"
+  - local: ".gitlab/.gitlab-ci_service5_front.yml"
