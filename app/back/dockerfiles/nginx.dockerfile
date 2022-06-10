@@ -11,8 +11,8 @@ RUN delgroup dialout
 
 RUN echo "GID" ${GID} "UID" ${UID}
 
-RUN addgroup -g ${GID} --system laravel
-RUN adduser -G laravel --system -D -s /bin/sh -u ${UID} laravel
+RUN addgroup -g 1000 --system laravel
+RUN adduser -G laravel --system -D -s /bin/sh -u 1000 laravel
 RUN sed -i "s/user  nginx/user laravel/g" /etc/nginx/nginx.conf
 
 ADD ./nginx/default.conf /etc/nginx/conf.d/
