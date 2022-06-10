@@ -1,0 +1,30 @@
+# variables:
+#   GID: "$GID$"
+#   UID: "$UID$"
+
+docker-build-nginx:
+  stage: build
+  allow_failure: true
+  # Use the official docker image.
+  image: docker:latest
+  #only: 
+  #  - main
+  services:
+    - docker:dind
+  before_script:
+    - cd app/back/dockerfiles
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  # Default branch leaves tag empty (= latest tag)
+  # All other branches are tagged with the escaped branch name (commit ref slug)
+  script:
+    - |
+      if [[ "$CI_COMMIT_BRANCH" == "$CI_DEFAULT_BRANCH" ]]; then
+        tag=""
+        echo "Running on default branch '$CI_DEFAULT_BRANCH': tag = 'latest'"
+      else
+        tag=":$CI_COMMIT_REF_SLUG"
+        echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
+      fi
+    - echo 'PUTAIN' GID=${GID} UID=${UID}
+    - docker build --pull --build-arg GID=${GID2} --build-arg UID=${UID2} -t "$CI_REGISTRY_IMAGE${tag}" -f nginx.dockerfile .
+    - docker push "$CI_REGISTRY_IMAGE${tag}"
