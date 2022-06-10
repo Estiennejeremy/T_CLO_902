@@ -1,5 +1,5 @@
 variables:
-  GID: "$GID$"
+  GID: "$GID"
   UID: "$UID$"
 
 docker-build-nginx:
