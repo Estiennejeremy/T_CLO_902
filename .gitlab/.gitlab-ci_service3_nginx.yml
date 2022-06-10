@@ -1,6 +1,6 @@
-variables:
-  GID: "$GID$"
-  UID: "$UID$"
+# variables:
+#   GID: "$GID$"
+#   UID: "$UID$"
 
 docker-build-nginx:
   stage: build
