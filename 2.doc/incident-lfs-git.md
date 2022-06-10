@@ -101,7 +101,77 @@ In total, 51 object ids were changed. Full details are logged here:
 BFG run is complete! When ready, run: git reflog expire --expire=now --all && git gc --prune=now --aggressive
 ```
 
-## additional cmds
-- `git reflog expire --expire=now --all && git gc --prune=now --aggressive` > failed due to docker ran with root user
-- `sudo chownb -R $USER:$USER .` > ok
-- `git reflog expire --expire=now --all && git gc --prune=now --aggressive` > ok
+##### another issue
+```s
+docker run --rm -v $PWD:/code -w /code docker-bfg --strip-blobs-bigger-than 49M
+
+Using repo : /code/.git
+
+Scanning packfile for large blobs: 659
+Scanning packfile for large blobs completed in 30 ms.
+Found 8 blob ids for large blobs - biggest=522765817 smallest=52756607
+Total size (unpacked)=2330784058
+Found 146 objects to protect
+Found 9 commit-pointing refs : HEAD, refs/heads/main, refs/remotes/origin/HEAD, ...
+
+Protected commits
+-----------------
+
+These are your protected commits, and so their contents will NOT be altered:
+
+ * commit 7b67b84a (protected by 'HEAD')
+
+Cleaning
+--------
+
+Found 61 commits
+Cleaning commits:       100% (61/61)
+Cleaning commits completed in 142 ms.
+
+Updating 7 Refs
+---------------
+
+	Ref                                   Before     After
+	---------------------------------------------------------
+	refs/heads/main                     | 7b67b84a | 9121329d
+	refs/remotes/origin/cicd            | eb551141 | b415dc5a
+	refs/remotes/origin/github          | 6aefe741 | 9289c043
+	refs/remotes/origin/main            | 7b67b84a | 9121329d
+	refs/remotes/origin/revert-56336056 | fb81f7e8 | 164cede4
+	refs/remotes/origin/setup           | 82e01fef | 6c0d15fe
+	refs/remotes/origin/test            | dcae5762 | 21e0e28f
+
+Updating references:    100% (7/7)
+...Ref update completed in 17 ms.
+
+Commit Tree-Dirt History
+------------------------
+
+	Earliest                                              Latest
+	|                                                          |
+	....DDDDDDDDDDDmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+
+	D = dirty commits (file tree fixed)
+	m = modified commits (commit message or parents changed)
+	. = clean commits (no changes to file tree)
+
+	                        Before     After
+	-------------------------------------------
+	First modified commit | fda3c653 | 95d88c0f
+	Last dirty commit     | 37f83dcc | f11dff20
+
+Deleted files
+-------------
+
+	Filename       Git id
+	------------------------------------------------------------
+	00000001.wal | 8adbebd6 (312.9 MB), db569694 (305.1 MB), ...
+
+
+In total, 127 object ids were changed. Full details are logged here:
+
+	/code.bfg-report/2022-06-03/16-10-56
+
+BFG run is complete! When ready, run: git reflog expire --expire=now --all && git gc --prune=now --aggressive
+[banana@msi108
+```
