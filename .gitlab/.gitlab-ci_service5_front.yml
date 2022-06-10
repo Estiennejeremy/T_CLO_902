@@ -2,7 +2,7 @@ variables:
   GID: "$GID$"
   UID: "$UID$"
 
-docker-build-composer:
+docker-build-front:
   stage: build
   allow_failure: true
   # Use the official docker image.
@@ -25,5 +25,5 @@ docker-build-composer:
         tag=":$CI_COMMIT_REF_SLUG"
         echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
       fi
-    - docker build --pull -t "$CI_REGISTRY_IMAGE${tag}" -f .
+    - docker build --pull -t "$CI_REGISTRY_IMAGE${tag}" .
     - docker push "$CI_REGISTRY_IMAGE${tag}"
