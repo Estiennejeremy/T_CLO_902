@@ -108,7 +108,7 @@ services:
       context: ./dockerfiles
       dockerfile: composer.dockerfile
       args:
-        - UID=1500
+        - UID=1000
         - GID=1000
     container_name: composer
     volumes:
