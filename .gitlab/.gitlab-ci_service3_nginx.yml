@@ -25,5 +25,6 @@ docker-build-nginx:
         tag=":$CI_COMMIT_REF_SLUG"
         echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
       fi
+    - echo 'PUTAIN' GID=${GID} UID=${UID}
     - docker build --pull --build-arg GID=${GID} --build-arg UID=${UID} -t "$CI_REGISTRY_IMAGE${tag}" -f nginx.dockerfile .
     - docker push "$CI_REGISTRY_IMAGE${tag}"
