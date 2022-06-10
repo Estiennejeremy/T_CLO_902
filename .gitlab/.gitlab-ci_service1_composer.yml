@@ -22,5 +22,5 @@ docker-build-composer:
         tag=":$CI_COMMIT_REF_SLUG"
         echo "Running on branch '$CI_COMMIT_BRANCH': tag = $tag"
       fi
-    - docker build --pull --build-arg GID=${GID} --build-arg UID=${UID} -t "$CI_REGISTRY_IMAGE${tag}" -f composer.dockerfile .
+    - docker build --pull --build-arg GID=${GID2} --build-arg UID=${UID2} -t "$CI_REGISTRY_IMAGE${tag}" -f composer.dockerfile .
     - docker push "$CI_REGISTRY_IMAGE${tag}"
