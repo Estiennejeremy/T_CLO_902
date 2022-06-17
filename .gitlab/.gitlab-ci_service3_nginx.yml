@@ -1,7 +1,3 @@
-# variables:
-#   GID: "$GID$"
-#   UID: "$UID$"
-
 docker-build-nginx:
   stage: build
   allow_failure: true
