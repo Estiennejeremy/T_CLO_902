@@ -8,7 +8,6 @@ docker-build-composer:
   services:
     - docker:dind
   before_script:
-    # - echo "${GID}" > "${HOME}/.kube/config"
     - cd app/back/dockerfiles
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   # Default branch leaves tag empty (= latest tag)

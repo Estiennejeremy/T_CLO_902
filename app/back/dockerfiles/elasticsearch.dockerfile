@@ -12,7 +12,7 @@ RUN \
 
 VOLUME ["/data"]
 
-ADD config/elasticsearch.yml /elasticsearch/config/elasticsearch.yml
+# COPY /elasticsearch/config/elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 
 WORKDIR /data
 
